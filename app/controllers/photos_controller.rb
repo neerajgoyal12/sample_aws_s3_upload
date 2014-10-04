@@ -74,17 +74,13 @@ class PhotosController < ApplicationController
     end
     
     def aws_presigned_url
+      # Can make this as an background job
       credentials = Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'],
                                                 ENV['AWS_SECRET_ACCESS_KEY'])
       puts credentials.to_yaml
-      @client = Aws::S3::Client.new(credentials: credentials, region: "ap-southeast-1")
-      puts @client.config.endpoint
+      @client = Aws::S3::Client.new(credentials: credentials, region: "ap-southeast-1")      
       response = @client.put_object(acl: "private",
                          bucket: "#{ENV['AWS_BUCKET']}",
                          key: "photos/#{@photo.id}/large/#{SecureRandom.hex}")
-      puts response.data
-      # @url = @signer.presigned_url(:get_object, bucket: "#{Rails.configuration.aws['AWS_BUCKET']}", key: "")
-      # puts @url
-      # puts @url.key
     end
 end
