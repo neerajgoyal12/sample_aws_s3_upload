@@ -42,4 +42,6 @@ gem 'foundation-rails'
 gem 'aws-sdk-core'
 gem 'figaro'
 gem 'paperclip'
+gem 'jquery-slick-rails'
+
 
