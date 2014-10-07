@@ -34,7 +34,6 @@ jQuery ->
 		console.log(event)
 		console.log(event.target.files)
 		if event.target.files.length > 0
-			#$(".small-slick").slickRemove add_button_count - 1
 			add_button_count++
 			$(".small-slick").slickAdd add_html_dummy, true 
 			console.log('count ' + add_button_count)
