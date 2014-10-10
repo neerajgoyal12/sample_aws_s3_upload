@@ -6,5 +6,5 @@ class Photo < ActiveRecord::Base
     	large: '640x640>'
     }
     validates_attachment_content_type :image, :content_type  => /\Aimage\/.*\Z/
-    validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
+    validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
 end

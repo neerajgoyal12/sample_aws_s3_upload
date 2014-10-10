@@ -1,0 +1,6 @@
+<% if @photo.new_record? %>
+	alert('upload failed');
+<% else %>
+	$(".small-slick").slickAdd("<%=j render partial: 'photos/small_image', locals: { image: @image } %>", true);
+	$(".large-slick").slickAdd("<%=j render partial: 'photos/large_image', locals: { image: @image } %>", true);
+<% end %>

@@ -43,5 +43,6 @@ gem 'aws-sdk-core'
 gem 'figaro'
 gem 'paperclip'
 gem 'jquery-slick-rails'
+gem 'jquery-fileupload-rails', '~> 0.4.1'
 
 

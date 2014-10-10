@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery.slick
+//= require jquery-fileupload/basic
 //= require turbolinks
 //= require_tree .
 

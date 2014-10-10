@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  after_action :aws_presigned_url, only: [:create]
+  # after_action :aws_presigned_url, only: [:create]
   # before_action :aws_presigned_url, only: [:]
   # GET /photos
   # GET /photos.json
@@ -26,9 +26,9 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(photo_params)
-
     respond_to do |format|
       if @photo.save
+        format.js {}
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
@@ -61,7 +61,7 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
