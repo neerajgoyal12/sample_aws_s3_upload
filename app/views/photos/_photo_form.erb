@@ -3,19 +3,23 @@
 		<div class="small-7 small-centered columns">
 			<span class="photo-frame">
 				<div class="large-slick">
-			    <% @photos.each do |photo| %>
-						<div>
-							<%= image_tag(photo.image(:large)) %>
-						</div>
-					<%end%>
+					<% if @photos %>
+				    <% @photos.each do |photo| %>
+							<div>
+								<%= image_tag(photo.image(:large)) %>
+							</div>
+						<% end %>
+					<% end %>
 				</div>
 			</span>
 			<span class="tumb-frame">
 				<div class="small-slick">
-					<% @photos.each do |photo| %>
-						<div>
-							<%= image_tag(photo.image(:thumb)) %>
-						</div>
+					<% if @photos %>
+						<% @photos.each do |photo| %>
+							<div>
+								<%= image_tag(photo.image(:thumb)) %>
+							</div>
+						<% end %>
 					<% end %>
 					<div id="new">
 						<%= render 'new_form' %> 
