@@ -4,17 +4,25 @@
 		<div class="small-7 small-centered columns">
 			<span class="photo-frame">
 				<div class="large-slick">
-						
+			    <% @photos.each do |photo| %>
+						<div>
+							<%= image_tag(photo.image(:large)) %>
+						</div>
+					<%end%>
 				</div>
 			</span>
 			<span class="tumb-frame">
 				<div class="small-slick">
-					<div id="name">
+					<% @photos.each do |photo| %>
+						<div>
+							<%= image_tag(photo.image(:thumb)) %>
+						</div>
+					<% end %>
+					<div id="new">
 						<%= render 'new_form' %> 
-						<!-- <%= button_to "Add Image", action: :add_image, method: :post, remote: true %> -->
 					</div>
 				</div>
 			</span>
 		</div>
 	</div>
-</span> 
+</span>

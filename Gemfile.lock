@@ -28,11 +28,11 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    aws-sdk-core (2.0.0)
-      builder (~> 3.0)
-      jamespath (>= 0.5.1)
-      multi_json (~> 1.0)
-      multi_xml (~> 0.5)
+    aws-sdk (1.53.0)
+      aws-sdk-v1 (= 1.53.0)
+    aws-sdk-v1 (1.53.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     builder (3.2.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -54,7 +54,6 @@ GEM
       sass (>= 3.2.0)
     hike (1.2.3)
     i18n (0.6.11)
-    jamespath (0.5.1)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -71,9 +70,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
-    multi_xml (0.5.5)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -141,7 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk-core
+  aws-sdk
   coffee-rails (~> 4.0.0)
   figaro
   foundation-rails

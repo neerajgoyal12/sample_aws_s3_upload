@@ -1,7 +1,5 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  # after_action :aws_presigned_url, only: [:create]
-  # before_action :aws_presigned_url, only: [:]
   # GET /photos
   # GET /photos.json
   def index
@@ -15,6 +13,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
+    @photos = Photo.all
     @photo = Photo.new
   end
 
@@ -71,16 +70,5 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:image_url, :image)
-    end
-    
-    def aws_presigned_url
-      # Can make this as an background job
-      credentials = Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'],
-                                                ENV['AWS_SECRET_ACCESS_KEY'])
-      puts credentials.to_yaml
-      @client = Aws::S3::Client.new(credentials: credentials, region: "ap-southeast-1")      
-      response = @client.put_object(acl: "private",
-                         bucket: "#{ENV['AWS_BUCKET']}",
-                         key: "photos/#{@photo.id}/large/#{SecureRandom.hex}")
     end
 end

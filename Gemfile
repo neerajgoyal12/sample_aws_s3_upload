@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'zurb-foundation'
 gem 'foundation-rails'
-gem 'aws-sdk-core'
+gem 'aws-sdk'
 gem 'figaro'
 gem 'paperclip'
 gem 'jquery-slick-rails'
