@@ -14,6 +14,8 @@ jQuery ->
 		arrows: true
 		autoplay: true
 		slidesToShow: 1
+	$("#photo-add-button").on 'click', (event) ->
+		$('#photo_image').focus().trigger('click')
 	$('#photo_image').on 'change', (event) ->
 		console.log(event)
 		console.log(event.target.files)

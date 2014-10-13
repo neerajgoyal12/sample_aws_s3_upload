@@ -11,9 +11,9 @@
     </div>
   <% end %>
   <div class="image field">
-	  <%= f.file_field :image%>
+	  <%= f.file_field :image, class: "button"%>
   </div>
 	<div class="action">
-		<%= f.submit 'Add Image', :class => "button radius"%>
+		<a href="#", class="button", id="photo-add-button">Add Image</a>
 	</div>
 <% end %>
