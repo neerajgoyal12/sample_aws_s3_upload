@@ -1,3 +1,4 @@
 <div>
 	<%= image_tag(@photo.image(:thumb))  %>
+	<%= link_to '', @photo, method: :delete, id: "delete-photo", data: { confirm: 'Are you sure?' } %>
 </div>

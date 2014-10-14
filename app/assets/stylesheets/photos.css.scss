@@ -14,3 +14,15 @@
 	-khtml-opacity: 0.0; /* Safari 1.x */
 	-moz-opacity: 0.0; /* FF lt 1.5, Netscape */
 }
+
+#delete-photo {
+	display: block;
+  position: absolute;
+  width:20px;
+  height:20px;
+  top: 2px;
+  right: 110px;
+	background: url(close42.svg);
+	background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
