@@ -19,8 +19,6 @@ jQuery ->
 	$("#photo-add-button").on 'click', (event) ->
 		$('#photo_image').focus().trigger('click')
 	$('#photo_image').on 'change', (event) ->
-		console.log(event)
-		console.log(event.target.files)
 		if event.target.files.length > 0
 			formData = new FormData()
 			formData.append 'photo[image]', $('#photo_image').get(0).files[0]
@@ -32,25 +30,4 @@ jQuery ->
 				contentType: false
 				processData: false
 				success: ->
-					console.log('successfully added photo ' + add_button_count)
-					add_button_count++				
-				# $(".small-slick").slickAdd add_html_dummy, true
-	# $(".small-slick").slickAdd add_html
-# 	console.log("Added button");
-# 	$('#photo-add-button').on 'click', ->
-# 		return if add_button_count >= 5
-# 		console.log('count ' + $('#photo-image'))
-# 		$('#photo_image').focus().trigger('click')
-# 	$('#photo_image').on 'change', (event) ->
-# 		console.log('inside upload file change event '+add_button_count)
-# 		console.log(event)
-# 		console.log(event.target.files)
-# 		if event.target.files.length > 0
-# 			console.log('count 1' + add_button_count)
-			# $('#photo-add-button').trigger('click')
-# 	$('#photo-add-button').on 'click', ->
-# 		console.log('inside photo-add-button '+add_button_count)
-# 		add_button_count++
-# 		$(".small-slick").slickAdd add_html_dummy, true
-# 		console.log('count 3' + add_button_count)
-	
+					console.log('successfully added photo')	
