@@ -27,10 +27,17 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
+        puts "**************"
+        puts "in save"
+        puts "**************"
         format.js {}
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
+        puts "**************"
+        puts "in error"
+        puts "**************"
+        format.js {}
         format.html { render :new }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
@@ -56,6 +63,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     respond_to do |format|
+      format.js {}
       format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end

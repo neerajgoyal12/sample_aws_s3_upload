@@ -31,3 +31,12 @@ jQuery ->
 				processData: false
 				success: ->
 					console.log('successfully added photo')	
+	$('#delete-photo').on 'click', (event) ->
+		$.ajax
+			url: '/photos/'+$(this).parent().attr('id')
+			type: 'POST'
+			data: {"_method":"delete"}
+			success: ->
+				console.log('inside success ' + $(this).parent().attr('id'))
+				$(this).parent().remove()
+		console.log('clicked ' + $(this).parent().attr('id'))

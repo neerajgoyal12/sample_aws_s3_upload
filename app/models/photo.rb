@@ -8,4 +8,19 @@ class Photo < ActiveRecord::Base
                              }
     validates_attachment_content_type :image, :content_type  => /\Aimage\/.*\Z/
     validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
+    
+    after_post_process :after_processing
+    before_post_process :before_processing
+    
+    def after_processing
+      puts "************"
+      puts "After processing"
+      puts "************"
+    end
+    
+    def before_processing
+      puts "************"
+      puts "before processing"
+      puts "************"
+    end
 end

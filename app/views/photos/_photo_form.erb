@@ -18,7 +18,8 @@
 						<% @photos.each do |photo| %>
 							<div id='<%= photo.id %>'>
 								<%= image_tag(photo.image(:thumb)) %>
-								<%= link_to '', photo, method: :delete, id: "delete-photo", data: { confirm: 'Are you sure?' } %>
+								<!-- <%= link_to '', photo, method: :delete, id: "delete-photo", data: { confirm: 'Are you sure?' } %> -->
+								<%= content_tag "a", href: "#", id: "delete-photo" , data: {id: photo.id} do %><% end %>
 							</div>
 						<% end %>
 					<% end %>
