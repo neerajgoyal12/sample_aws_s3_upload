@@ -1,5 +1,2 @@
-<% if @photo %>
-	alert "deleted";
-<% else %>
-	alert "deleted";
-<% end %>
+$('#large-<%= @photo.id %>').remove();
+$('#small-<%= @photo.id %>').remove();

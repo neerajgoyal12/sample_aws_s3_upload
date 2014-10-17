@@ -5,7 +5,7 @@
 				<div class="large-slick">
 					<% if @photos %>
 				    <% @photos.each do |photo| %>
-							<div id='<%= photo.id %>'>
+							<div id='large-<%= photo.id %>'>
 								<%= image_tag(photo.image(:large)) %>
 							</div>
 						<% end %>
@@ -16,10 +16,10 @@
 				<div class="small-slick">
 					<% if @photos %>
 						<% @photos.each do |photo| %>
-							<div id='<%= photo.id %>'>
+							<div id='small-<%= photo.id %>'>
 								<%= image_tag(photo.image(:thumb)) %>
-								<!-- <%= link_to '', photo, method: :delete, id: "delete-photo", data: { confirm: 'Are you sure?' } %> -->
-								<%= content_tag "a", href: "#", id: "delete-photo" , data: {id: photo.id} do %><% end %>
+								<%= link_to '', photo, method: :delete, remote: true, id: "delete-photo", data: { confirm: 'Are you sure?' } %>
+								<!-- <%= content_tag "a", href: "#", id: "delete-photo" , data: {id: photo.id} do %><% end %> -->
 							</div>
 						<% end %>
 					<% end %>

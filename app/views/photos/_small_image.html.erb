@@ -1,4 +1,4 @@
-<div>
+<div id='small-<%= @photo.id %>'>
 	<%= image_tag(@photo.image(:thumb))  %>
 	<%= link_to '', @photo, method: :delete, remote: true, id: "delete-photo", data: { confirm: 'Are you sure?' } %>
 </div>
