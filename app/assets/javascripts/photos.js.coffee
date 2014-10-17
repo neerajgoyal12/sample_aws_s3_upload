@@ -1,19 +1,17 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-add_button_count = 0
-add_html = '<div><input id="photo_image" name="photo[image]" type="file" /><input id="photo-add-button" name="commit" type="submit" value="Add Photo" /></div>'
-add_html_dummy = '<div><a href="#" class="button" id="photo-add-dummy">Image</a></div>'
 jQuery ->
 	$(".large-slick").slick
 		slidesToShow: 1
 		slidesToScroll: 1
-		arrows: false
+		arrows: true
 		fade: true
 		asNavFor: ".small-slick"
 	$(".small-slick").slick
 		slidesToShow: 3
 		slidesToScroll: 1
+		dots: true
 		asNavFor: ".large-slick"
 		focusOnSelect: true
 	$("#photo-add-button").on 'click', (event) ->
@@ -29,14 +27,15 @@ jQuery ->
 				cache: false
 				contentType: false
 				processData: false
-				success: ->
-					console.log('successfully added photo')	
-	$('#delete-photo').on 'click', (event) ->
-		# $.ajax
-# 			url: '/photos/'+$(this).parent().attr('id')
-# 			type: 'POST'
-# 			data: {"_method":"delete"}
-# 			success: ->
-# 				console.log('inside success ' + $(this).parent().attr('id'))
-# 				$(this).parent().remove()
-			console.log('clicked ' + $(this).parent().attr('id'))
+				success: (data, status, xhr)  ->
+					console.log('successfully added photo Status: ' + status)	
+				complete: (xhr, status) ->
+					console.log('Completed Ajax')
+	# $('#delete-photo').on 'ajax:success', (data, status, xhr) ->
+	# 	console.log('File deleted successful')
+	# $('#delete-photo').on 'ajax:error', (xhr, status, e) ->
+	# 	console.log('Status : ' + status + ' Error: ' + e)
+	# $('#delete-photo').on 'ajax:beforeSend', (xhr, settings) ->
+	# 	console.log('Before Sending Image')
+	# $('#delete-photo').on 'ajax:complete', (xhr, status) ->
+	# 	console.log('Completed Ajax')
