@@ -37,7 +37,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'zurb-foundation'
 gem 'foundation-rails'
 gem 'aws-sdk'
 gem 'figaro'
