@@ -1,2 +1,6 @@
-$('#large-<%= @photo.id %>').remove();
+console.log('#small-<%= @photo.id %>');
+console.log('#large-<%= @photo.id %>');
 $('#small-<%= @photo.id %>').remove();
+$('#large-<%= @photo.id %>').remove();
+$('.small-slick').slickSetOption('autoplay', false, true);
+$('.large-slick').slickSetOption('autoplay', false, true);
