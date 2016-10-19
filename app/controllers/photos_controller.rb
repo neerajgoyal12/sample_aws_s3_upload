@@ -36,6 +36,7 @@ class PhotosController < ApplicationController
       else
         puts "**************"
         puts "in error"
+        puts @photo.errors.to_yaml
         puts "**************"
         format.js {}
         format.html { render :new }

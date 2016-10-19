@@ -1,5 +1,18 @@
 <% if @photo.new_record? %>
-	alert('upload failed');
+	//alert('Uplaod Failed 1');
+  <% if @photo.errors.any? %>
+	//alert('Uplaod Failed 1');
+    //<div id="error_explanation">
+      // <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      //<ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        //<li><%= message %></li>
+				alert('Upload Failed : ' + message);
+      <% end %>
+      //</ul>
+    //</div>
+  <% end %>
 <% else %>
 	$(".small-slick").slickAdd("<%=j render partial: 'photos/small_image', locals: { image: @image } %>", true);
 	$(".large-slick").slickAdd("<%=j render partial: 'photos/large_image', locals: { image: @image } %>", true);
